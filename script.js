@@ -61,4 +61,63 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Modal Logic
+    const modal = document.getElementById('project-modal');
+    const closeBtn = document.querySelector('.close-btn');
+    const projectBtns = document.querySelectorAll('.view-project-btn');
+    
+    // Elements to populate in modal
+    const modalTitle = document.getElementById('modal-title');
+    const modalTag = document.getElementById('modal-tag');
+    const modalDesc = document.getElementById('modal-desc');
+    const modalLink = document.getElementById('modal-link');
+
+    projectBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const title = btn.getAttribute('data-title');
+            const tag = btn.getAttribute('data-tag');
+            const desc = btn.getAttribute('data-desc');
+            const link = btn.getAttribute('data-link');
+
+            modalTitle.textContent = title;
+            modalTag.textContent = tag;
+            modalDesc.textContent = desc;
+            modalLink.href = link;
+
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        });
+    });
+
+    const closeModal = () => {
+        modal.classList.remove('show');
+        document.body.style.overflow = 'auto'; // Re-enable scrolling
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+
+    // Close on outside click
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Contact Form Logic
+    const contactForm = document.getElementById('contact-form');
+    const formSuccess = document.getElementById('form-success');
+
+    if(contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent page reload
+            
+            // Show success message
+            formSuccess.style.display = 'block';
+            
+            // Clear form and hide it smoothly
+            contactForm.reset();
+            contactForm.style.display = 'none';
+        });
+    }
 });
