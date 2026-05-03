@@ -78,7 +78,7 @@
                     <span class="tag">Web App</span>
                     <h3>Chibi Animation Studio</h3>
                     <p>Web-based 2D animation app parsing text into 8+ second video sequences using procedural generation.</p>
-                    <a href="#" class="btn-link">Explore Case Study &rarr;</a>
+                    <button class="btn-link view-project-btn" data-title="Chibi Animation Studio" data-tag="Web App" data-desc="A full-stack web application designed for YouTube Shorts creators. It features a character design generator to produce reference charts, a scene-parsing engine that converts text descriptions into animated sequences, and a seamless video export pipeline using procedural canvas-based rendering." data-link="https://github.com/vivashverma07">Explore Case Study &rarr;</button>
                 </div>
             </div>
             <div class="glass-card project-card">
@@ -87,7 +87,7 @@
                     <span class="tag">Marketing</span>
                     <h3>Speedo Email Creator</h3>
                     <p>Browser-based marketing email creator with a dual-pane interface and AI-driven template generation.</p>
-                    <a href="#" class="btn-link">Explore Case Study &rarr;</a>
+                    <button class="btn-link view-project-btn" data-title="Speedo Email Creator" data-tag="Marketing" data-desc="A custom application built for Speedo. It features a rich-text editor, template selection, and dynamic CTA management, strictly adhering to Speedo brand guidelines. Supports responsive HTML email generation and live previews." data-link="https://github.com/vivashverma07">Explore Case Study &rarr;</button>
                 </div>
             </div>
         </div>
@@ -97,12 +97,30 @@
         <div class="glass-panel contact-panel">
             <h2>Let's build the future.</h2>
             <p>Looking for an AI engineer to bring your visionary ideas to life? Let's connect.</p>
-            <a href="mailto:hello@example.com" class="btn btn-primary">Start a Conversation</a>
+            <form id="contact-form" class="contact-form">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" placeholder="Your Message" rows="4" required></textarea>
+                <button type="submit" class="btn btn-primary" style="width: 100%; border: none; cursor: pointer;">Send Message</button>
+            </form>
+            <div id="form-success" class="form-success" style="display: none;">
+                Message sent successfully! I'll get back to you soon.
+            </div>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2026 AI Portfolio. All rights reserved.</p>
         </div>
     </footer>
+
+    <div id="project-modal" class="modal">
+        <div class="modal-content glass-card">
+            <span class="close-btn">&times;</span>
+            <div class="tag" id="modal-tag">Tag</div>
+            <h2 id="modal-title">Project Title</h2>
+            <p id="modal-desc">Detailed project description goes here.</p>
+            <a href="#" id="modal-link" class="btn btn-primary" target="_blank" style="margin-top: 1.5rem;">View Project</a>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
