@@ -74,7 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalLink = document.getElementById('modal-link');
 
     projectBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
             const title = btn.getAttribute('data-title');
             const tag = btn.getAttribute('data-tag');
             const desc = btn.getAttribute('data-desc');
